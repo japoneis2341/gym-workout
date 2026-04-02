@@ -756,3 +756,5 @@ body {
   .modal { border-radius: 12px; }
   .modal-anim { height: 220px; }
 }
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
