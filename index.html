@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GYM PRO — Treinos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">GYM<span>PRO</span></div>
+    <div class="nav-links">
+      <button class="nav-btn active" data-page="home" onclick="showPage('home')">Home</button>
+      <button class="nav-btn" data-page="naka" onclick="showPage('naka')">Naka</button>
+      <button class="nav-btn" data-page="thayniton" onclick="showPage('thayniton')">Thayniton</button>
+    </div>
+    <button class="nav-burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <button onclick="showPage('home');toggleMenu()">Home</button>
+    <button onclick="showPage('naka');toggleMenu()">Naka</button>
+    <button onclick="showPage('thayniton');toggleMenu()">Thayniton</button>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">🏋️ Sistema de Treinos Personalizados</div>
+      <h1 class="hero-title">
+        ELEVE SEU<br/>
+        <span class="hero-accent">NÍVEL</span><br/>
+        AO MÁXIMO
+      </h1>
+      <p class="hero-sub">Protocolos de treino avançados para quem não aceita o ordinário. Ciência aplicada. Resultado garantido.</p>
+      <div class="hero-divider"></div>
+      <div class="hero-modules">
+        <div class="module-card" onclick="showPage('naka')">
+          <div class="module-icon">🧍</div>
+          <div class="module-tag">MÓDULO 01</div>
+          <div class="module-name">NAKA</div>
+          <div class="module-desc">Upper / Lower / Push / Pull / Legs — 5 dias de treino científico</div>
+          <div class="module-days">5 DIAS · SEG–SEX</div>
+          <button class="module-btn">VER TREINO →</button>
+        </div>
+        <div class="module-card card-alt" onclick="showPage('thayniton')">
+          <div class="module-icon">⚡</div>
+          <div class="module-tag">MÓDULO 02</div>
+          <div class="module-name">THAYNITON</div>
+          <div class="module-desc">Bulking Avançado com drop sets e rest-pause — 6 dias de intensidade máxima</div>
+          <div class="module-days">6 DIAS · SEG–SÁB</div>
+          <button class="module-btn btn-alt">VER TREINO →</button>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">2</span><span class="stat-label">Atletas</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num">11</span><span class="stat-label">Dias de Treino</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num">60+</span><span class="stat-label">Exercícios</span></div>
+    </div>
+  </section>
+</div>
+
+<!-- NAKA PAGE -->
+<div class="page" id="page-naka">
+  <div class="workout-page">
+    <div class="workout-header">
+      <button class="back-btn" onclick="showPage('home')">← Voltar</button>
+      <div class="workout-title-block">
+        <div class="workout-badge">MÓDULO 01</div>
+        <h2 class="workout-name">TREINO NAKA</h2>
+        <p class="workout-desc">Upper · Lower · Push · Pull · Legs</p>
+      </div>
+    </div>
+    <div class="week-nav" id="naka-week"></div>
+    <div class="day-content" id="naka-content"></div>
+  </div>
+</div>
+
+<!-- THAYNITON PAGE -->
+<div class="page" id="page-thayniton">
+  <div class="workout-page">
+    <div class="workout-header">
+      <button class="back-btn" onclick="showPage('home')">← Voltar</button>
+      <div class="workout-title-block">
+        <div class="workout-badge badge-alt">MÓDULO 02</div>
+        <h2 class="workout-name">TREINO THAYNITON</h2>
+        <p class="workout-desc">Bulking Avançado · Rest-Pause · Drop Sets</p>
+      </div>
+    </div>
+    <div class="week-nav" id="thayniton-week"></div>
+    <div class="day-content" id="thayniton-content"></div>
+  </div>
+</div>
+
+<!-- EXERCISE MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-anim" id="modalAnim"></div>
+    <div class="modal-info">
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <div class="modal-detail" id="modalDetail"></div>
+      <div class="modal-tip" id="modalTip"></div>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
