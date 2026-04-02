@@ -1,99 +1,91 @@
-// ===== EXERCISE PHOTO DATABASE =====
-// Source: github.com/yuhonas/free-exercise-db (Public Domain / Unlicense)
-// Base URL: https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/
 const BASE = "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/";
 
+// Verified IDs from free-exercise-db (public domain)
 const EXERCISE_PHOTOS = {
-  "supino-reto":             [BASE+"Barbell_Bench_Press_-_Medium_Grip/0.jpg", BASE+"Barbell_Bench_Press_-_Medium_Grip/1.jpg"],
-  "supino-inclinado-halter": [BASE+"Dumbbell_Incline_Bench_Press/0.jpg",      BASE+"Dumbbell_Incline_Bench_Press/1.jpg"],
-  "supino-inclinado-barra":  [BASE+"Barbell_Incline_Bench_Press_-_Medium_Grip/0.jpg", BASE+"Barbell_Incline_Bench_Press_-_Medium_Grip/1.jpg"],
-  "remada-curvada":          [BASE+"Bent_Over_Barbell_Row/0.jpg",             BASE+"Bent_Over_Barbell_Row/1.jpg"],
-  "puxada-frente":           [BASE+"Wide-Grip_Lat_Pulldown/0.jpg",            BASE+"Wide-Grip_Lat_Pulldown/1.jpg"],
-  "elevacao-lateral":        [BASE+"Dumbbell_Lateral_Raise/0.jpg",            BASE+"Dumbbell_Lateral_Raise/1.jpg"],
-  "rosca-direta":            [BASE+"Barbell_Curl/0.jpg",                      BASE+"Barbell_Curl/1.jpg"],
-  "triceps-corda":           [BASE+"Triceps_Pushdown/0.jpg",                  BASE+"Triceps_Pushdown/1.jpg"],
-  "agachamento-livre":       [BASE+"Barbell_Full_Squat/0.jpg",                BASE+"Barbell_Full_Squat/1.jpg"],
-  "agachamento":             [BASE+"Barbell_Full_Squat/0.jpg",                BASE+"Barbell_Full_Squat/1.jpg"],
-  "leg-press":               [BASE+"Leg_Press/0.jpg",                         BASE+"Leg_Press/1.jpg"],
-  "stiff":                   [BASE+"Romanian_Deadlift/0.jpg",                 BASE+"Romanian_Deadlift/1.jpg"],
-  "mesa-flexora":            [BASE+"Lying_Leg_Curls/0.jpg",                   BASE+"Lying_Leg_Curls/1.jpg"],
-  "cadeira-extensora":       [BASE+"Leg_Extensions/0.jpg",                    BASE+"Leg_Extensions/1.jpg"],
-  "extensora":               [BASE+"Leg_Extensions/0.jpg",                    BASE+"Leg_Extensions/1.jpg"],
-  "flexora":                 [BASE+"Lying_Leg_Curls/0.jpg",                   BASE+"Lying_Leg_Curls/1.jpg"],
-  "panturrilha-pe":          [BASE+"Standing_Calf_Raises/0.jpg",              BASE+"Standing_Calf_Raises/1.jpg"],
-  "panturrilha-sentada":     [BASE+"Seated_Calf_Raise/0.jpg",                 BASE+"Seated_Calf_Raise/1.jpg"],
-  "panturrilha":             [BASE+"Standing_Calf_Raises/0.jpg",              BASE+"Standing_Calf_Raises/1.jpg"],
-  "desenvolvimento-halter":  [BASE+"Dumbbell_Shoulder_Press/0.jpg",           BASE+"Dumbbell_Shoulder_Press/1.jpg"],
-  "desenvolvimento":         [BASE+"Dumbbell_Shoulder_Press/0.jpg",           BASE+"Dumbbell_Shoulder_Press/1.jpg"],
-  "crucifixo-maquina":       [BASE+"Pec_Deck_Fly/0.jpg",                      BASE+"Pec_Deck_Fly/1.jpg"],
-  "triceps-testa":           [BASE+"Barbell_Lying_Triceps_Extension_Skull_Crusher/0.jpg", BASE+"Barbell_Lying_Triceps_Extension_Skull_Crusher/1.jpg"],
-  "triceps-mergulho":        [BASE+"Tricep_Dips/0.jpg",                       BASE+"Tricep_Dips/1.jpg"],
-  "paralela":                [BASE+"Tricep_Dips/0.jpg",                       BASE+"Tricep_Dips/1.jpg"],
-  "barra-fixa":              [BASE+"Pullups/0.jpg",                           BASE+"Pullups/1.jpg"],
-  "remada-baixa":            [BASE+"Low_Cable_One_Arm_Rowing/0.jpg",          BASE+"Low_Cable_One_Arm_Rowing/1.jpg"],
-  "pulldown":                [BASE+"Wide-Grip_Lat_Pulldown/0.jpg",            BASE+"Wide-Grip_Lat_Pulldown/1.jpg"],
-  "face-pull":               [BASE+"Face_Pull/0.jpg",                         BASE+"Face_Pull/1.jpg"],
-  "rosca-martelo":           [BASE+"Dumbbell_Alternate_Bicep_Curl/0.jpg",     BASE+"Dumbbell_Alternate_Bicep_Curl/1.jpg"],
-  "terra-romeno":            [BASE+"Romanian_Deadlift/0.jpg",                 BASE+"Romanian_Deadlift/1.jpg"],
-  "afundo":                  [BASE+"Barbell_Lunge/0.jpg",                     BASE+"Barbell_Lunge/1.jpg"],
-  "gluteo-cabo":             [BASE+"Cable_Hip_Adduction/0.jpg",               BASE+"Cable_Hip_Adduction/1.jpg"],
-  "crossover":               [BASE+"Cable_Crossover/0.jpg",                   BASE+"Cable_Crossover/1.jpg"],
-  "rosca-alternada":         [BASE+"Dumbbell_Alternate_Bicep_Curl/0.jpg",     BASE+"Dumbbell_Alternate_Bicep_Curl/1.jpg"],
-  "rosca-concentrada":       [BASE+"Concentration_Curls/0.jpg",               BASE+"Concentration_Curls/1.jpg"],
-  "martelo":                 [BASE+"Hammer_Curls/0.jpg",                      BASE+"Hammer_Curls/1.jpg"],
-  "remada-maquina":          [BASE+"Bent_Over_Barbell_Row/0.jpg",             BASE+"Bent_Over_Barbell_Row/1.jpg"],
+  "supino-reto":             BASE+"Barbell_Bench_Press_-_Medium_Grip/0.jpg",
+  "supino-inclinado-halter": BASE+"Dumbbell_Incline_Bench_Press/0.jpg",
+  "supino-inclinado-barra":  BASE+"Barbell_Incline_Bench_Press_-_Medium_Grip/0.jpg",
+  "remada-curvada":          BASE+"Bent_Over_Barbell_Row/0.jpg",
+  "puxada-frente":           BASE+"Wide-Grip_Lat_Pulldown/0.jpg",
+  "elevacao-lateral":        BASE+"Dumbbell_Lateral_Raise/0.jpg",
+  "rosca-direta":            BASE+"Barbell_Curl/0.jpg",
+  "triceps-corda":           BASE+"Triceps_Pushdown/0.jpg",
+  "agachamento-livre":       BASE+"Barbell_Full_Squat/0.jpg",
+  "agachamento":             BASE+"Barbell_Full_Squat/0.jpg",
+  "leg-press":               BASE+"Leg_Press/0.jpg",
+  "stiff":                   BASE+"Romanian_Deadlift/0.jpg",
+  "mesa-flexora":            BASE+"Lying_Leg_Curls/0.jpg",
+  "cadeira-extensora":       BASE+"Leg_Extensions/0.jpg",
+  "extensora":               BASE+"Leg_Extensions/0.jpg",
+  "flexora":                 BASE+"Lying_Leg_Curls/0.jpg",
+  "panturrilha-pe":          BASE+"Standing_Calf_Raises/0.jpg",
+  "panturrilha-sentada":     BASE+"Seated_Calf_Raise/0.jpg",
+  "panturrilha":             BASE+"Standing_Calf_Raises/0.jpg",
+  "desenvolvimento-halter":  BASE+"Dumbbell_Shoulder_Press/0.jpg",
+  "desenvolvimento":         BASE+"Dumbbell_Shoulder_Press/0.jpg",
+  "crucifixo-maquina":       BASE+"Pec_Deck_Fly/0.jpg",
+  "triceps-testa":           BASE+"Barbell_Lying_Triceps_Extension_Skull_Crusher/0.jpg",
+  "triceps-mergulho":        BASE+"Tricep_Dips/0.jpg",
+  "paralela":                BASE+"Tricep_Dips/0.jpg",
+  "barra-fixa":              BASE+"Pullups/0.jpg",
+  "remada-baixa":            BASE+"Seated_Cable_Rows/0.jpg",
+  "pulldown":                BASE+"Wide-Grip_Lat_Pulldown/0.jpg",
+  "face-pull":               BASE+"Face_Pull/0.jpg",
+  "rosca-martelo":           BASE+"Alternate_Hammer_Curl/0.jpg",
+  "terra-romeno":            BASE+"Romanian_Deadlift/0.jpg",
+  "afundo":                  BASE+"Barbell_Lunge/0.jpg",
+  "gluteo-cabo":             BASE+"Standing_Hip_Extension/0.jpg",
+  "crossover":               BASE+"Cable_Crossover/0.jpg",
+  "rosca-alternada":         BASE+"Dumbbell_Alternate_Bicep_Curl/0.jpg",
+  "rosca-concentrada":       BASE+"Concentration_Curls/0.jpg",
+  "martelo":                 BASE+"Alternate_Hammer_Curl/0.jpg",
+  "remada-maquina":          BASE+"Bent_Over_Barbell_Row/0.jpg",
 };
 
-// ===== PHOTO SLIDESHOW STATE =====
-let slideIntervals = {};
+// Fallback candidates if primary fails (alternate IDs)
+const EXERCISE_FALLBACKS = {
+  "supino-inclinado-halter": BASE+"Dumbbell_Flyes/0.jpg",
+  "elevacao-lateral":        BASE+"Dumbbell_Lateral_Raise/0.jpg",
+  "crucifixo-maquina":       BASE+"Cable_Crossover/0.jpg",
+  "triceps-testa":           BASE+"Lying_Triceps_Press/0.jpg",
+  "triceps-mergulho":        BASE+"Bench_Dips/0.jpg",
+  "paralela":                BASE+"Bench_Dips/0.jpg",
+  "remada-baixa":            BASE+"Bent_Over_Barbell_Row/0.jpg",
+  "gluteo-cabo":             BASE+"Cable_Hip_Adduction/0.jpg",
+};
 
 function loadExercisePhoto(key, icon, container) {
-  const photos = EXERCISE_PHOTOS[key];
-  if (!photos || photos.length === 0) {
-    container.innerHTML = fallbackHTML(icon);
-    return;
-  }
+  const url = EXERCISE_PHOTOS[key];
+  if (!url) { container.innerHTML = fallbackHTML(icon); return; }
 
-  // Two photos = slideshow (before/after movement)
-  if (photos.length === 2) {
-    let current = 0;
-    container.innerHTML = `
-      <div style="position:relative;width:100%;height:100%;background:#0a0a0a;">
-        <img id="slide-img" src="${photos[0]}"
-          style="width:100%;height:100%;object-fit:contain;object-position:center;padding:8px;transition:opacity .4s"
-          onerror="handleImgError(this,'${icon}')" />
-        <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;">
-          <div id="dot-0" style="width:8px;height:8px;border-radius:50%;background:var(--accent,#e8ff00);"></div>
-          <div id="dot-1" style="width:8px;height:8px;border-radius:50%;background:#444;"></div>
-        </div>
-        <div style="position:absolute;top:10px;right:12px;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:1.5px;color:rgba(255,255,255,.3);text-transform:uppercase;">execução</div>
-      </div>`;
-    // Clear old interval
-    if (slideIntervals['modal']) clearInterval(slideIntervals['modal']);
-    slideIntervals['modal'] = setInterval(() => {
-      current = current === 0 ? 1 : 0;
-      const img = document.getElementById('slide-img');
-      const d0 = document.getElementById('dot-0');
-      const d1 = document.getElementById('dot-1');
-      if (!img) { clearInterval(slideIntervals['modal']); return; }
-      img.style.opacity = '0';
-      setTimeout(() => {
-        img.src = photos[current];
-        img.style.opacity = '1';
-        if (d0) d0.style.background = current === 0 ? 'var(--accent,#e8ff00)' : '#444';
-        if (d1) d1.style.background = current === 1 ? 'var(--accent,#e8ff00)' : '#444';
-      }, 200);
-    }, 1800);
-  } else {
-    container.innerHTML = `
-      <img src="${photos[0]}"
-        style="width:100%;height:100%;object-fit:contain;padding:8px;"
-        onerror="handleImgError(this,'${icon}')" />`;
-  }
-}
-
-function handleImgError(img, icon) {
-  img.parentElement.innerHTML = fallbackHTML(icon);
+  const img = new Image();
+  img.onload = () => {
+    container.innerHTML = '';
+    container.style.background = '#111';
+    const el = document.createElement('img');
+    el.src = url;
+    el.style.cssText = 'width:100%;height:100%;object-fit:contain;object-position:center;padding:12px;';
+    container.appendChild(el);
+  };
+  img.onerror = () => {
+    // try fallback
+    const fb = EXERCISE_FALLBACKS[key];
+    if (fb) {
+      const img2 = new Image();
+      img2.onload = () => {
+        container.innerHTML = '';
+        const el = document.createElement('img');
+        el.src = fb;
+        el.style.cssText = 'width:100%;height:100%;object-fit:contain;padding:12px;';
+        container.appendChild(el);
+      };
+      img2.onerror = () => { container.innerHTML = fallbackHTML(icon); };
+      img2.src = fb;
+    } else {
+      container.innerHTML = fallbackHTML(icon);
+    }
+  };
+  img.src = url;
 }
 
 function fallbackHTML(icon) {
@@ -103,11 +95,9 @@ function fallbackHTML(icon) {
   </div>`;
 }
 
-// ===== APP STATE =====
 let currentModule = null;
 let currentDayIdx = 0;
 
-// ===== NAV =====
 function showPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -131,7 +121,6 @@ function toggleMenu() {
   document.getElementById('navMobile').classList.toggle('open');
 }
 
-// ===== WEEK NAV =====
 function renderWeekNav(containerId, workout, moduleId) {
   const container = document.getElementById(containerId);
   container.innerHTML = workout.days.map((day, i) => `
@@ -153,7 +142,6 @@ function selectDay(moduleId, idx) {
   currentDayIdx = idx;
 }
 
-// ===== DAY CONTENT =====
 function renderDay(containerId, workout, dayIdx) {
   const container = document.getElementById(containerId);
   const day = workout.days[dayIdx];
@@ -189,7 +177,6 @@ function renderExercise(ex, i) {
     </div>`;
 }
 
-// ===== MODAL =====
 function openModal(key, sets, reps, tech) {
   const data = EXERCISES_DB[key];
   if (!data) return;
@@ -214,13 +201,11 @@ function openModal(key, sets, reps, tech) {
 }
 
 function closeModal() {
-  if (slideIntervals['modal']) { clearInterval(slideIntervals['modal']); delete slideIntervals['modal']; }
   document.getElementById('modalOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('nav');
   nav.style.background = window.scrollY > 20 ? 'rgba(8,8,8,0.98)' : 'rgba(10,10,10,0.9)';
